@@ -15,7 +15,7 @@ bl_info = {
 
 
 class ICYP_OT_make_empty_mesh(bpy.types.Operator):
-    bl_idname = "mesh.empty_mesh"
+    bl_idname = "mesh.add_empty_mesh"
     bl_label = "Add empty mesh"
     bl_description = "Add empty mesh"
     bl_options = {'REGISTER', 'UNDO'}
@@ -26,11 +26,11 @@ class ICYP_OT_make_empty_mesh(bpy.types.Operator):
         context.scene.collection.objects.link(o)
         o.location = context.scene.cursor.location
         context.view_layer.objects.active = o
-        ops.object.mode_set(mode='EDIT')
+        bpy.ops.object.mode_set(mode='EDIT')
         return {'FINISHED'}
 
 def icyp_empty_mesh_menu(self, context):
-    self.layout.menu(ICYP_OT_make_empty_mesh.bl_idname,
+    self.layout.operator(ICYP_OT_make_empty_mesh.bl_idname,
                      text="EMPTY MESH", icon="PLUGIN")    
                      
 classes = [ICYP_OT_make_empty_mesh]
