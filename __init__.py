@@ -33,7 +33,7 @@ def icyp_empty_mesh_menu(self, context):
     self.layout.menu(ICYP_OT_make_empty_mesh.bl_idname,
                      text="EMPTY MESH", icon="PLUGIN")    
                      
-cls = [ICYP_OT_make_empty_mesh]
+classes = [ICYP_OT_make_empty_mesh]
 
 def register():
     for cls in classes:
